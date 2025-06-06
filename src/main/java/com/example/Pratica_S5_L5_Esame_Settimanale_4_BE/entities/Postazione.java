@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;  // importa ToString
 
 @Data
 @NoArgsConstructor
@@ -27,7 +28,8 @@ public class Postazione {
     @Column(nullable = false)
     private int postiDisponibili;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "edificio_id", nullable = false)
+    @ToString.Exclude
     private Edificio edificio;
 }

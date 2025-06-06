@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.ToString;  // importa ToString
 import java.util.List;
 
 @Data
@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "utenti")
 public class Utente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long utenteId;
@@ -32,6 +33,7 @@ public class Utente {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ToString.Exclude
     private List<Prenotazione> prenotationList;
 }

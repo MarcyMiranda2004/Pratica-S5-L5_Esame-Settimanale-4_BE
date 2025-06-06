@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;  // importa ToString
 
 import java.time.LocalDate;
 
@@ -21,11 +22,13 @@ public class Prenotazione {
     @Column(name = "data_prenotazione", nullable = false)
     private LocalDate dataPrenotazione;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "postazione_id", nullable = false)
+    @ToString.Exclude
     private Postazione postazione;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "utente_id", nullable = false)
+    @ToString.Exclude
     private Utente utente;
 }

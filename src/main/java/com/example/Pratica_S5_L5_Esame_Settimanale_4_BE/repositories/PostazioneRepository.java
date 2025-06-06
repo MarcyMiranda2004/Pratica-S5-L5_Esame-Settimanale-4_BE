@@ -17,8 +17,4 @@ public interface PostazioneRepository extends JpaRepository<Postazione, Long> {
 
     @Query("SELECT p FROM Postazione p WHERE p.postazioneId NOT IN (SELECT pr.postazione.postazioneId FROM Prenotazione pr WHERE pr.dataPrenotazione = :data)")
     List<Postazione> findDisponibiliInData(@Param("data") LocalDate data);
-
-    // Query inutilizzate
-    // List<Postazione> findByTipoPostazione(TipoPostazione tipoPostazione);
-    // List<Postazione> findByEdificioCity(String city);
 }
