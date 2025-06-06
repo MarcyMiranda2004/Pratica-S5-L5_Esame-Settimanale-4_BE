@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PraticaS5L5EsameSettimanale4BeApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(PraticaS5L5EsameSettimanale4BeApplication.class, args);
 	}
-
 }
